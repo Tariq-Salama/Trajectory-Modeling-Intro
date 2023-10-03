@@ -1,0 +1,30 @@
+/**
+ * A program that, given a speed, will compute the distance traveled for every possible angle in the simulator.
+ * 
+ * @author Tariq Salama
+ * @version 20230310
+ **/
+import java.util.Scanner;
+public class TrajectoryModelingIntro {
+	public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      System.out.println("Enter an initial speed: ");
+      double speed = scnr.nextDouble();
+      
+      double degrees = 90.0;
+      double cos90 = Math.cos(Math.toRadians(degrees));
+      double sin90 = Math.sin(Math.toRadians(degrees));
+      double g = 9.8;
+      double angle = 25;
+      
+      while (angle < 90) {
+         double t = ((2 * speed) * Math.sin(Math.toRadians(angle))) / g;
+         double d = (speed * t * Math.cos(Math.toRadians(angle)));
+         System.out.format("At angle %.2f projectile travels %.2f meters%n", angle, d);
+         angle += 5;
+      }
+      
+	}
+
+}
